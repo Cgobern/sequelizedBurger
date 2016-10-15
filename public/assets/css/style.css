@@ -1,0 +1,41 @@
+body {
+    background: url("../images/burger1.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Fjalla One', sans-serif;
+    text-align: center;
+}
+
+.jumbotron{
+    background: rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.col-sm-4 {
+    align-content: center;
+    align-items: center;
+}
+
+li {
+    background: #FAEBD7;
+    margin: 5px;
+    padding: 5px;
+    list-style: none;
+}
+
+.label {
+    font-weight: bold;
+}
+
+#addBurger{
+    background: aqua;
+    margin: 5px;
+    padding: 5px;
+    float: right;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
