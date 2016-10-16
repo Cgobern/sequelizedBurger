@@ -6,8 +6,9 @@
 // =============================================================
 var express = require('express');
 var router = express.Router();
+var burger = require('../models/burger.js')
 
-var orm = require('../models')["Burger"];
+
 
 
 // Routes
@@ -17,28 +18,26 @@ router.get('/', function (req, res) {
 });
 
 router.get('/burgers', function (req, res) {
-    orm.findAll({
-
-    }).then(function(result){
-        var hbsObject = { burgers: result };
+    burger.all(function (data){
+        var hbsObject = {burgers: data};
+        console.log(hbsObject);
         res.render('index', hbsObject);
     });
 });
 
 router.post('/burgers/create', function (req, res) {
-    var tastyBurger = req.body.name;
-
-    orm.create({burger_name: tastyBurger}).then(function(){
-        console.log("Added " + tastyBurger + "!");
-        res.redirect('/burgers');
-    });
+    burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function(){
+            res.redirect('/burgers');
+        });
 });
 
-router.put('/burgers/update/:id', function (req, res) {
-    var eatenBurger = req.params.id;
 
-    orm.update({ devoured: 1 }, { where: {id: eatenBurger} }).then(function(){
-        console.log("Devoured " + eatenBurger + "!");
+router.put('/burgers/update/:id', function (req, res) {
+    var condition = 'id = ' + req.params.id;
+
+    console.log('conditon', conditon);
+
+    burger.update({devoured: req.body.devoured}, conditon, function(){
         res.redirect('/burgers');
     });
 });

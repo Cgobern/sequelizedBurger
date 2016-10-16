@@ -4,7 +4,7 @@
 
 // EXPORT THIS MODULE TO INDEX.JS
 module.exports = function(sequelize, DataTypes) {
-    var Burger = sequelize.define('Burger', {
+    var burger = sequelize.define('burger', {
         burger_name: DataTypes.STRING,
         devoured: {type: DataTypes.INTEGER, defaultValue: 0}, // Default = false = not devoured
         date: {type: DataTypes.DATE, defaultValue: sequelize.NOW}
@@ -15,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    return Burger;
+    return burger;
 };
